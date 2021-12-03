@@ -6,14 +6,14 @@ from time import sleep
 class ChineseCheckersMain():
     def __init__(self) -> None:
         self.board = Board()
+        self.algo = ChineseCheckerAlgorithm()
         self._work()
         pass
 
     def _work(self):
-        sleep(5)
-        current_pos = (3, -4)
-        self.board.move_pug(current_pos, (2, -3))
-        sleep(3)
+        for st in self.algo.successor_states(self.board.state):
+            self.board.set_state(st)
+
         pass
 
 
